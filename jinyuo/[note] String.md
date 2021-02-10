@@ -26,7 +26,7 @@ print('신씨가 소리질렀다. "도둑이야".')
 - \n : 줄바꿈
 - \t : 들여쓰기
 
-## print 함수
+## print()
 
 ### 전달하는 매개변수가 여러 개인 경우
 
@@ -100,7 +100,78 @@ print(string[::2])
 print(string[::-1])
 ```
 
-## replace 함수
+## 문자열 연산
+
+### +
+
+합치기
+
+```python
+a = "3"
+b = "4"
+print(a + b)
+```
+
+### *
+
+같은 문자열 n회 반복
+
+```python
+print("Hi" * 3)
+```
+
+## 문자열 formatting
+
+문자열 안에 어떤 값을 삽입하는 방법
+
+### 포맷 코드
+
+```python
+name1 = "김민수"
+age1 = 10
+name2 = "이철희"
+age2 = 13
+print("이름 : %s 나이 : %d" % (name1, age1))
+print("이름 : %s 나이 : %d" % (name2, age2))
+```
+
+- 문자열 포맷 코드
+
+    %s : String. 사실 상 어떤 형태의 값이든 변환하여 넣을 수 있음
+
+    %c : Character
+
+    %d : Integer
+
+    %f : Float
+
+    %o : 8진수
+
+    %x : 16진수
+
+    %% : %
+
+### format()
+
+```python
+print("이름 : {} 나이 : {}".format(name1, age1))
+print("이름 : {} 나이 : {}".format(name2, age2))
+```
+
+### f-String
+
+3.6 버전 이상 지원
+
+문자열 앞에 접두사 f
+
+표현식 지원 
+
+```python
+print(f"이름 : {name1} 나이 : {age1}")
+print(f"이름 : {name2} 나이 : {age2}")
+```
+
+## replace()
 
 replace("old", "new") : old 문자열을 new 문자열로 변환
 
@@ -110,7 +181,36 @@ print(phone_number.replace("-", " "))
 # 010 1111 2222
 ```
 
-## split 함수
+## upper()
+
+대문자로 변환
+
+```python
+ticker = "btc_krw"
+print(ticker.upper())
+#BTC_KRW
+```
+
+## lower()
+
+소문자로 변환
+
+```python
+ticker = "BTC_KRW"
+print(ticker.lower())
+# btc_krw
+```
+
+## capitalize()
+
+문자열의 첫글자는 대문자로, 나머지는 소문자로 변환
+
+```python
+print("heLLo".capitalize())
+# Hello
+```
+
+## split()
 
 split("문자열") : 문자열을 매개변수값을 기준으로 구분한 배열로 반환
 
@@ -118,4 +218,38 @@ split("문자열") : 문자열을 매개변수값을 기준으로 구분한 배�
 url = "http://sharebook.kr"
 print(url.split(".")[-1])
 # kr
+```
+
+## strip()
+
+공백 삭제
+
+```python
+data = "   삼성전자   "
+print(data.strip())
+
+# 오른쪽 공백 삭제
+print(data.rstrip())
+```
+
+## endswith()
+
+문자열이 지정 문자로 끝나는 경우 True 반환
+
+```python
+file_name = "2020_보고서.xlsx"
+print(file_name.endswith("xlsx"))
+# True
+
+print(file_name.endswith(("xlsx" , "xls")))
+# True
+```
+
+## startswith()
+
+문자열이 지정 문자로 시작하는 경우 True 반환
+
+```python
+file_name = "2020_보고서.xlsx"
+print(file_name.startswith("2020"))
 ```
